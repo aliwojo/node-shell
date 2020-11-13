@@ -4,6 +4,8 @@ const ls = require("./ls");
 
 const cat = require("./cat");
 
+const curl = require("./curl");
+
 process.stdout.write("prompt > ");
 
 process.stdin.on("data", (data) => {
@@ -15,5 +17,7 @@ process.stdin.on("data", (data) => {
     ls();
   } else if (cmd === "cat") {
     cat();
+  } else if (cmd === "curl") {
+    curl();
   }
 });
