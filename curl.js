@@ -1,16 +1,14 @@
 const request = require("request");
 
-const curlFunc = function () {
-  process.stdout.write("\nEnter url >");
-  process.stdin.on("data", (data) => {
-    const url = data.toString().trim();
-    // console.log(url);
-    request(url, function (error, response, body) {
-      console.error("error:", error);
-      console.log("statusCode:", response && response.statusCode);
-      console.log("body:", body);
-      process.stdout.write("\nprompt > ");
-    });
+const curlFunc = function (cmd, done) {
+  //get url from entered command
+  const url = cmd.split(" ")[1];
+  request(url, function (error, response, body) {
+    if (error) {
+      document("Something went wrong!");
+    } else {
+      done(body);
+    }
   });
 };
 

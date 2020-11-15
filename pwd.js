@@ -1,7 +1,5 @@
-const pwdFunc = function () {
-
-  process.stdout.write(__dirname);
-  process.stdout.write("\nprompt > ");
+const pwdFunc = function (done) {
+  done(__dirname);
 };
 
 module.exports = pwdFunc;

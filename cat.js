@@ -1,16 +1,14 @@
 const fs = require("fs");
 
-const catFunc = function () {
-  fs.readFile(__filename, "utf8", (err, data) => {
+const catFunc = function (cmd, done) {
+  const file = `./${cmd.split(" ")[1]}`;
+  fs.readFile(file, "utf8", (err, data) => {
     if (err) {
-      throw err;
+      done("Something went wrong!");
     } else {
-      process.stdout.write(data);
-      process.stdout.write("\nprompt > ");
+      done(data);
     }
   });
-}
+};
 
 module.exports = catFunc;
-
-
