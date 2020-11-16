@@ -5,7 +5,7 @@ const curlFunc = function (cmd, done) {
   const url = cmd.split(" ")[1];
   request(url, function (error, response, body) {
     if (error) {
-      document("Something went wrong!");
+      done("Something went wrong!");
     } else {
       done(body);
     }
